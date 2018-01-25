@@ -12,12 +12,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDBKR4Ra6RwlxznrtLxzwaIFlKTXZntYZ0",
-  authDomain: "kapcq-dev.firebaseapp.com",
-  databaseURL: "https://kapcq-dev.firebaseio.com",
-  projectId: "kapcq-dev",
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
   storageBucket: "",
-  messagingSenderId: "628962386546"
+  messagingSenderId: ""
 };
 
 @NgModule({
