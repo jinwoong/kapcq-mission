@@ -10,6 +10,7 @@ import {
   MatTabsModule,
   MatCardModule,
 } from '@angular/material';
+import { DxDataGridModule } from 'devextreme-angular';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
+    DxDataGridModule,
   ],
   exports: [
     BrowserAnimationsModule,
@@ -32,6 +34,7 @@ import {
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
+    DxDataGridModule,
   ],
   declarations: []
 })

@@ -10,14 +10,15 @@ import { AppComponent } from './app.component';
 import { MemberManagementComponent } from './member-management/member-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import { ManagementComponent } from './management/management.component';
 
 var firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: ""
+  apiKey: "AIzaSyDBKR4Ra6RwlxznrtLxzwaIFlKTXZntYZ0",
+  authDomain: "kapcq-dev.firebaseapp.com",
+  databaseURL: "https://kapcq-dev.firebaseio.com",
+  projectId: "kapcq-dev",
+  storageBucket: "kapcq-dev.appspot.com",
+  messagingSenderId: "628962386546"
 };
 
 @NgModule({
@@ -25,7 +26,8 @@ var firebaseConfig = {
     AppComponent,
     MemberManagementComponent,
     DashboardComponent,
-    AdminComponent
+    AdminComponent,
+    ManagementComponent
   ],
   imports: [
     BrowserModule,
