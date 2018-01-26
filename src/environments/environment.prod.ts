@@ -1,9 +1,11 @@
+import {config} from '../../config';
+
 export const environment = {
   production: true,
-  apiKey: "AIzaSyDBKR4Ra6RwlxznrtLxzwaIFlKTXZntYZ0",
-  authDomain: "kapcq-dev.firebaseapp.com",
-  databaseURL: "https://kapcq-dev.firebaseio.com",
-  projectId: "kapcq-dev",
-  storageBucket: "kapcq-dev.appspot.com",
-  messagingSenderId: "628962386546"
+  apiKey: config.apiKey,
+  authDomain: config.authDomain,
+  databaseURL: config.projectId,
+  projectId: config.projectId,
+  storageBucket: config.storageBucket,
+  messagingSenderId: config.messagingSenderId
 };
