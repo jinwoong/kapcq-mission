@@ -1,5 +1,35 @@
-<dx-data-grid
-    id="gridContainer"
-    [dataSource]="members"
-    [columns]="['Name', 'Position', 'Cell', 'Phone', 'Birthday', 'Email']">
-</dx-data-grid>
+<mat-card>
+    <dx-data-grid
+        id="gridContainer"
+        [dataSource]="members"
+        [allowColumnResizing]="true"
+        [columnResizingMode]="columnResizingMode"
+        [columnAutoWidth]="true">
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager 
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[5, 10, 20]"
+            [showInfo]="true">
+        </dxo-pager>
+        <dxo-search-panel [visible]="true"></dxo-search-panel>
+        <dxo-editing 
+            mode="popup"
+            [allowUpdating]="true"
+            [allowAdding]="true">
+            <dxo-popup
+                title="Member Info"
+                [showTitle]="true"
+                [width]="700"
+                [height]="345"
+                [position]="{ my: 'center', at: 'center', of: window }">
+            </dxo-popup>
+        </dxo-editing>    
+        <dxi-column dataField="Name"></dxi-column>
+        <dxi-column dataField="Position"></dxi-column>
+        <dxi-column dataField="Team"></dxi-column>
+        <dxi-column dataField="Phone"></dxi-column>
+        <dxi-column dataField="Birthday" [width]="100"></dxi-column>
+        <dxi-column dataField="Email" [width]="250"></dxi-column>
+    </dx-data-grid>
+</mat-card>
+
