@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-
-interface Post {
-  title: string;
-  content: string;
-}
+// import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+// import { Observable } from 'rxjs/Observable';
+// import 'rxjs/add/operator/map';
+import { PrismService } from '../prism.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,19 +11,19 @@ interface Post {
 })
 export class DashboardComponent implements OnInit {
 
-  postsCol: AngularFirestoreCollection<Post>;
-  posts: Observable<Post[]>;
+  // postsCol: AngularFirestoreCollection<Post>;
+  posts:any;
 
   constructor(
-    private afs: AngularFirestore
+    // private afs: AngularFirestore,
+    private ps: PrismService
   ) { 
 
   }
 
   ngOnInit() {
-    this.postsCol = this.afs.collection('posts');
-    this.posts = this.postsCol.valueChanges();
-    console.log(this.postsCol);
+    //this.postsCol = this.afs.collection('posts');
+    this.posts = this.ps.getPosts().valueChanges();
     console.log(this.posts);
   }
 
