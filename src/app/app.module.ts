@@ -14,6 +14,7 @@ import { MemberManagementComponent } from './member-management/member-management
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { ManagementComponent } from './management/management.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 
 var firebaseConfig = {
@@ -31,7 +32,8 @@ var firebaseConfig = {
     MemberManagementComponent,
     DashboardComponent,
     AdminComponent,
-    ManagementComponent
+    ManagementComponent,
+    AnnouncementComponent
   ],
   imports: [
     BrowserModule,
