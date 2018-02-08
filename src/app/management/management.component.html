@@ -4,7 +4,8 @@
         [dataSource]="members"
         [allowColumnResizing]="true"
         [columnResizingMode]="columnResizingMode"
-        [columnAutoWidth]="true">
+        [columnAutoWidth]="true"
+        (onRowInserting)="addMember($event)">
         <dxo-paging [pageSize]="10"></dxo-paging>
         <dxo-pager 
             [showPageSizeSelector]="true"
@@ -25,8 +26,8 @@
             </dxo-popup>
         </dxo-editing>    
         <dxi-column dataField="Name"></dxi-column>
-        <dxi-column dataField="Position"></dxi-column>
         <dxi-column dataField="Team"></dxi-column>
+        <dxi-column dataField="Position"></dxi-column>
         <dxi-column dataField="Phone"></dxi-column>
         <dxi-column dataField="Birthday"></dxi-column>
         <dxi-column dataField="Email"></dxi-column>

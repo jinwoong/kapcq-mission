@@ -1,21 +1,23 @@
 mat-toolbar {
     height: 50px;
     font-size: 0.9em;
+    /* background-color: black; */
 }
 
 .sidenav-toolbar {
-    background-color: #F4511E;
+    background-color: black;
     color: white;
 }
 
 .content-toolbar {
     color: white;
+    background-color: black;
 }
 
 .sidenav {
     position: fixed;
     left:0;
-    background-color: #455A64;
+    background-color: #757575;
 }
 
 .end-sidenav {
@@ -35,7 +37,7 @@ mat-toolbar {
 .list-item {
     display: flex;
     align-items: center;
-    color: #CFD8DC;
+    color: black;
     font-size: 0.8em;
 }
 
@@ -53,6 +55,7 @@ mat-toolbar {
     left: 0;
     right: 0;
     z-index: 2;
+    
 }
 
 .menu-button {
