@@ -18,15 +18,22 @@ export class PrismService {
   ) { }
 
   getPosts() {
-    // this.postsCol = this.afs.collection('posts');
-    // return this.postsCol.snapshotChanges()
-    // .map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Post;
-    //     const id = a.payload.doc.id;
-    //     return { id, data };
-    //   });
-    // });
     return this.afs.collection('posts');
+  }
+
+  getMembers() {
+    return this.afs.collection('members');
+  }
+
+  getTeamMembers(team) {
+    return this.afs.collection('members', ref => ref.where('Team','==',team))
+  }
+
+  addPost(title: string, content: string) {
+    this.afs.collection('posts').add({'title': title, 'content': content});
+  }
+
+  addMembers(name: string, team: string) {
+    this.afs.collection('members').add({'Name': name, 'Team': team});
   }
 }

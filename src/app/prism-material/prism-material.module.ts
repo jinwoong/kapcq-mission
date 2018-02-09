@@ -9,6 +9,9 @@ import {
   MatButtonModule,
   MatTabsModule,
   MatCardModule,
+  MatInputModule,
+  MatSelectModule,
+  
 } from '@angular/material';
 import { DxDataGridModule } from 'devextreme-angular';
 
@@ -23,6 +26,8 @@ import { DxDataGridModule } from 'devextreme-angular';
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
+    MatInputModule,
+    MatSelectModule,
     DxDataGridModule,
   ],
   exports: [
@@ -34,6 +39,8 @@ import { DxDataGridModule } from 'devextreme-angular';
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
+    MatInputModule,
+    MatSelectModule,
     DxDataGridModule,
   ],
   declarations: []
