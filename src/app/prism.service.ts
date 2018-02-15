@@ -21,6 +21,10 @@ export class PrismService {
     return this.afs.collection('posts');
   }
 
+  getAnnouncements(){
+    return this.afs.collection('announcement');
+  }
+
   getMembers() {
     return this.afs.collection('members');
   }

@@ -5,6 +5,11 @@ import { PrismRoutingModule } from './prism-routing/prism-routing.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule, MatDialog,MatDialogRef } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 import { environment } from '../environments/environment';
 import { PrismService } from './prism.service';
@@ -16,6 +21,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ManagementComponent } from './management/management.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { CreatePostDialog } from './announcement/announcement.component';
 
 
 var firebaseConfig = {
@@ -35,12 +41,19 @@ var firebaseConfig = {
     AdminComponent,
     ManagementComponent,
     AnnouncementComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    CreatePostDialog,
   ],
+  entryComponents: [CreatePostDialog],
   imports: [
     BrowserModule,
     PrismMaterialModule,
     PrismRoutingModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatInputModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     FormsModule
