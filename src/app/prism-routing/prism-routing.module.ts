@@ -6,6 +6,7 @@ import { AnnouncementComponent } from '../announcement/announcement.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/member-management', pathMatch: 'full' },
   { path: 'member-management', component: MemberManagementComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'announcement', component: AnnouncementComponent},

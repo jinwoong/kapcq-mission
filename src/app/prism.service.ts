@@ -30,7 +30,13 @@ export class PrismService {
   }
 
   getTeamMembers(team) {
-    return this.afs.collection('members', ref => ref.where('Team','==',team))
+    return this.afs.collection('members', ref => ref.where('Team','==',team)).snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    })
   }
 
   addPost(title: string, content: string) {
@@ -39,5 +45,19 @@ export class PrismService {
 
   addMembers(name: string, team: string) {
     this.afs.collection('members').add({'Name': name, 'Team': team});
+  }
+
+  addAttendance(id, date, service, meeting) {
+    this.afs.collection('members').doc(id).collection('attendance').add({'date':date,'service': service, 'meeting': meeting});
+  }
+
+  getDocumentId() {
+    return this.afs.collection('members').snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    })
   }
 }

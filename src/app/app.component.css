@@ -5,7 +5,8 @@ mat-toolbar {
 }
 
 .sidenav-toolbar {
-    background-color: black;
+    /* background-color: #FF5722; */
+    border-right: 2px solid white;
     color: white;
 }
 
@@ -15,9 +16,12 @@ mat-toolbar {
 }
 
 .sidenav {
-    position: fixed;
-    left:0;
-    background-color: #757575;
+    /* position: fixed; */
+    /* left:0; */
+    /* top: 0; */
+    /* bottom: 0; */
+    height: 100%;
+    background-color: white;
 }
 
 .end-sidenav {
@@ -59,7 +63,5 @@ mat-toolbar {
 }
 
 .menu-button {
-    position: fixed;
-    z-index: 3;
     color: white;
 }
