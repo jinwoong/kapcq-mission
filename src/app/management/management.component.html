@@ -3,7 +3,6 @@
         id="gridContainer"
         [dataSource]="members"
         [allowColumnResizing]="true"
-        [columnResizingMode]="columnResizingMode"
         [columnAutoWidth]="true"
         (onRowInserting)="addMember($event)">
         <dxo-paging [pageSize]="10"></dxo-paging>
@@ -22,7 +21,7 @@
                 [showTitle]="true"
                 [width]="700"
                 [height]="345"
-                [position]="{ my: 'center', at: 'center', of: window }">
+                [position]="{ my: 'center', at: 'center', of: 'window' }">
             </dxo-popup>
         </dxo-editing>    
         <dxi-column dataField="Name"></dxi-column>
