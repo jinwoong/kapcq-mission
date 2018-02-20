@@ -1,32 +1,32 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 mat-dialog-title>Hi {{name}}</h1>
 <div mat-dialog-content>
 	<p>작성자</p>
 	<mat-form-field>
-		<input matInput [(ngModel)]="data.name">
+		<input matInput [(ngModel)]="name">
 	</mat-form-field>
 
 	<p>부서</p>
 	<mat-form-field>
-		<input matInput [(ngModel)]="data.group">
+		<input matInput [(ngModel)]="group">
 	</mat-form-field>
 
 	<p>팀</p>
 	<mat-form-field>
-		<input matInput [(ngModel)]="data.team">
+		<input matInput [(ngModel)]="team">
 	</mat-form-field>
 
 	<p>제목</p>
 	<mat-form-field>
-		<input matInput [(ngModel)]="data.title">
+		<input matInput [(ngModel)]="title">
 	</mat-form-field>
 
 	<p>내용</p>
 	<mat-form-field>
-		<input matInput [(ngModel)]="data.content">
+		<input matInput [(ngModel)]="content">
 	</mat-form-field>
 
 </div>
 <div mat-dialog-actions>
 	<button mat-button (click)="onNoClick()">Cancel</button>
-	<button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>Post</button>
+	<button mat-button (click)="submit()" cdkFocusInitial>Post</button>
 </div>

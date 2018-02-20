@@ -40,4 +40,7 @@ export class PrismService {
   addMembers(name: string, team: string) {
     this.afs.collection('members').add({'Name': name, 'Team': team});
   }
+  addAnnouncement(content: string, group: string, teamcolor: string, title: string, writer: string){
+    this.afs.collection('announcement').add({'Content': content, 'Group': group, 'TeamColor': teamcolor, 'Title': title, 'Wrtier': writer});
+  }
 }

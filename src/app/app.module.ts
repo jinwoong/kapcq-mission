@@ -21,7 +21,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ManagementComponent } from './management/management.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { AttendanceComponent } from './attendance/attendance.component';
-import { CreatePostDialog } from './announcement/announcement.component';
+import { CreatePostDialogComponent } from './create-post-dialog/create-post-dialog.component';
 
 
 var firebaseConfig = {
@@ -42,9 +42,9 @@ var firebaseConfig = {
     ManagementComponent,
     AnnouncementComponent,
     AttendanceComponent,
-    CreatePostDialog,
+    CreatePostDialogComponent,
   ],
-  entryComponents: [CreatePostDialog],
+  entryComponents: [CreatePostDialogComponent],
   imports: [
     BrowserModule,
     PrismMaterialModule,
