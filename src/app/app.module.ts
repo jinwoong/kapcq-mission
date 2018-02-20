@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialog,MatDialogRef } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { environment } from '../environments/environment';
 import { PrismService } from './prism.service';
@@ -47,6 +48,7 @@ var firebaseConfig = {
   entryComponents: [CreatePostDialogComponent],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     PrismMaterialModule,
     PrismRoutingModule,
     MatGridListModule,

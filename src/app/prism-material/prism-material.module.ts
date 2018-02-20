@@ -11,7 +11,10 @@ import {
   MatCardModule,
   MatInputModule,
   MatSelectModule,
-  
+  MatCheckboxModule,
+  MatDividerModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { DxDataGridModule } from 'devextreme-angular';
 
@@ -28,6 +31,10 @@ import { DxDataGridModule } from 'devextreme-angular';
     MatCardModule,
     MatInputModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     DxDataGridModule,
   ],
   exports: [
@@ -41,6 +48,10 @@ import { DxDataGridModule } from 'devextreme-angular';
     MatCardModule,
     MatInputModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     DxDataGridModule,
   ],
   declarations: []
