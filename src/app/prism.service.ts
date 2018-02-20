@@ -15,7 +15,7 @@ export class PrismService {
 
   constructor(
     private afs: AngularFirestore
-  ) { }
+    ) { }
 
   getPosts() {
     return this.afs.collection('posts');
@@ -46,10 +46,9 @@ export class PrismService {
   addMembers(name: string, team: string) {
     this.afs.collection('members').add({'Name': name, 'Team': team});
   }
-<<<<<<< HEAD
   addAnnouncement(content: string, group: string, teamcolor: string, title: string, writer: string){
-    this.afs.collection('announcement').add({'Content': content, 'Group': group, 'TeamColor': teamcolor, 'Title': title, 'Wrtier': writer});
-=======
+    this.afs.collection('announcement').add({'Content': content, 'Group': group, 'TeamColor': teamcolor, 'Title': title, 'Writer': writer});
+  }
 
   addAttendance(id, date, service, meeting) {
     this.afs.collection('members').doc(id).collection('attendance').add({'date':date,'service': service, 'meeting': meeting});
@@ -63,6 +62,5 @@ export class PrismService {
         return data;
       })
     })
->>>>>>> 9d3a70a831a32d3186b8b0b7e6694ec49f36389e
   }
 }

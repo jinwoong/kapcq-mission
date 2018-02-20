@@ -1,14 +1,15 @@
-<mat-grid-list cols="4" rowHeight="100px">
+<mat-grid-list cols="5" rowHeight="100px">
 	<mat-grid-tile
 	*ngFor="let tile of tiles"
-	[colspan]="tile.cols"
-	[rowspan]="tile.rows"
-	[style.background]="tile.color">
-	{{tile.text}}
+	[colspan]=5
+	[rowspan]=5
+	[style.background]="tile.TeamColor">
+	{{tile.Title}}
+	{{tile.Content}}
+	{{tile.Group}}
+	{{tile.Writer}}
 </mat-grid-tile>
-</mat-grid-list>
-
 <div class="createPost-button">
 	<button mat-fab (click)="openDialog()"><mat-icon>create</mat-icon></button>
 </div>
-
+</mat-grid-list>

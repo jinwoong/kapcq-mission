@@ -1,0 +1,9 @@
+.createPost-button{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+.mat-grid-tile{
+	color: white;
+	font-size: 50px;
+}

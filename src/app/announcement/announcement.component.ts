@@ -12,12 +12,7 @@ import { CreatePostDialogComponent } from '../create-post-dialog/create-post-dia
 export class AnnouncementComponent implements OnInit {
 
 	announcement: any;
-	tiles = [
-	{text: 'One', cols: 4, rows: 4, color: 'lightblue'},
-	{text: 'Two', cols: 4, rows: 4, color: 'lightgreen'},
-	{text: 'Three', cols: 4, rows: 4, color: 'lightpink'},
-	{text: 'Four', cols: 4, rows: 4, color: '#DDBDF1'},
-	];
+	tiles = [];
 
 	constructor(private ps: PrismService, public dialog: MatDialog) { }
 
@@ -26,9 +21,6 @@ export class AnnouncementComponent implements OnInit {
 			width: '450px',
 		});
 
-		dialogRef.afterClosed().subscribe(result => {
-			console.log('The dialog was closed ${result}');
-		});
 	}
 
 
@@ -36,6 +28,14 @@ export class AnnouncementComponent implements OnInit {
 		this.ps.getAnnouncements().valueChanges().subscribe(res => {
 			this.announcement = res;
 			//console.log(this.announcement[0]);
+			//console.log(this.announcement.length);
+
+			for(var i = 0; i < this.announcement.length; i++)
+			{
+				this.tiles.push(this.announcement[i]);
+			}
+			this.tiles.reverse();
+			console.log(this.tiles);
 		})
 	}
 

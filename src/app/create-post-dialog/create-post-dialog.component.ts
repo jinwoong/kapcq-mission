@@ -26,6 +26,7 @@ export class CreatePostDialogComponent implements OnInit {
 	}
 	submit(): void{
 		this.ps.addAnnouncement(this.content, this.group, this.team, this.title, this.name);
+		console.log(this.group);
 		this.dialogRef.close();
 	}
 

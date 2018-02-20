@@ -7,12 +7,23 @@
 
 	<p>부서</p>
 	<mat-form-field>
-		<input matInput [(ngModel)]="group">
+		<mat-select [(value)]="group" required placeholder="Select">
+			<mat-option value="청대">청년 대학부</mat-option>
+			<mat-option value="청선">청년 선교부</mat-option>
+		</mat-select>
 	</mat-form-field>
 
 	<p>팀</p>
 	<mat-form-field>
-		<input matInput [(ngModel)]="team">
+		<mat-select [(value)]="team" required placeholder="Select">
+			<mat-option value="#ff9999">빨</mat-option>
+			<mat-option value="#ffa64d">주</mat-option>
+			<mat-option value="#ffff66">노</mat-option>
+			<mat-option value="#4dff88">초</mat-option>
+			<mat-option value="#b3b3ff">파</mat-option>
+			<mat-option value="#5c5cd6">남</mat-option>
+			<mat-option value="#cc00cc">보</mat-option>
+		</mat-select>
 	</mat-form-field>
 
 	<p>제목</p>
