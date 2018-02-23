@@ -9,21 +9,20 @@ import { PrismService } from '../prism.service';
 
 export class ManagementComponent implements OnInit {
 
-  members:any;
+  members: any;
 
   constructor(
     private ps: PrismService
   ) { }
 
   ngOnInit() {
-    this.ps.getMembers().valueChanges().subscribe(res => {
+    this.ps.getMembers().subscribe(res => {
       this.members = res;
-    })
-    //console.log(this.members);
+    });
   }
 
   addMember(e) {
-    //console.log(e)
+    // console.log(e)
     if (e.data.Name && e.data.Team) {
       this.ps.addMembers(e.data.Name, e.data.Team);
     }

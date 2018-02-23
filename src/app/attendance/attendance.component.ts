@@ -28,13 +28,13 @@ export class AttendanceComponent implements OnInit {
   }
 
   addAttendance() {
-    console.log("Adding attendance...");
+    console.log('Adding attendance...');
     if (this.attendanceDate) {
-      for (let member of this.members) {
-        if (member.sundayChecked == undefined) {
+      for (const member of this.members) {
+        if (member.sundayChecked === undefined) {
           member.sundayChecked = false;
         }
-        if (member.meetingChecked == undefined) {
+        if (member.meetingChecked === undefined) {
           member.meetingChecked = false;
         }
         member.attendanceDate = this.attendanceDate;
