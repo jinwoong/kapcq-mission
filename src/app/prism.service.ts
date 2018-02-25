@@ -47,7 +47,13 @@ export class PrismService {
   }
 
   getAttendance(id, date) {
-    return this.afs.collection('members').doc(id).collection('attendance', ref => ref.where('date', '==', date));
+    return this.afs.collection('members').doc(id).collection('attendance', ref => ref.where('date', '==', date)).snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    });
   }
 
   addPost(title: string, content: string) {
@@ -62,7 +68,22 @@ export class PrismService {
   }
 
   addAttendance(id, date, service, meeting) {
-    this.afs.collection('members').doc(id).collection('attendance').add({'date': date, 'service': service, 'meeting': meeting});
+    var data:Array<any> = [];
+    this.getAttendance(id, date).subscribe(res => {
+      data = res;
+      if (data.length > 0) {
+        console.log('has data');
+      } else {
+        // this.afs.collection('members').doc(id).collection('attendance').add({'date': date, 'service': service, 'meeting': meeting});
+      }
+    });
+
+    // console.log(data);
+    // if () {
+
+    // } else {
+    //   this.afs.collection('members').doc(id).collection('attendance').add({'date': date, 'service': service, 'meeting': meeting});
+    // }
   }
 
   getDocumentId() {

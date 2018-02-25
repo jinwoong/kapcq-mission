@@ -37,9 +37,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  getAttendance() {
+  viewAttendance() {
     for (const member of this.members) {
-      this.ps.getAttendance(member.id, this.selectedDate).valueChanges().subscribe(response => {
+      this.ps.getAttendance(member.id, this.selectedDate).subscribe(response => {
         console.log(response);
       });
     }

@@ -3,7 +3,7 @@
     <mat-card-title>{{total}}</mat-card-title>
 </mat-card>
 <mat-form-field style="width:100%;">
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="selectedDate" (dateChange)="getAttendance()">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="selectedDate" (dateChange)="viewAttendance()">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker touchUi="true" #picker></mat-datepicker>
 </mat-form-field>
