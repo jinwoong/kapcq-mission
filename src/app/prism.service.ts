@@ -26,7 +26,6 @@ export class PrismService {
   }
 
   getMembers() {
-    // return this.afs.collection('members');
     return this.afs.collection('members').snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
@@ -47,12 +46,13 @@ export class PrismService {
   }
 
   getAttendance(id, date) {
-    return this.afs.collection('members').doc(id).collection('attendance', ref => ref.where('date', '==', date)).snapshotChanges().map(actions => {
+    return this.afs.collection('members').doc(id).collection('attendance', ref => ref.where('date', '==', date))
+    .snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;
         return data;
-      })
+      });
     });
   }
 
@@ -68,22 +68,19 @@ export class PrismService {
   }
 
   addAttendance(id, date, service, meeting) {
-    var data:Array<any> = [];
+    let data: any;
     this.getAttendance(id, date).subscribe(res => {
       data = res;
+      console.log(data);
       if (data.length > 0) {
-        console.log('has data');
+        console.log('has data id: ' + id + ' attendance id: ' + data[0].id);
+        this.afs.collection('members').doc(id).collection('attendance').doc(data[0].id).update({'service': service, 'meeting': meeting});
       } else {
-        // this.afs.collection('members').doc(id).collection('attendance').add({'date': date, 'service': service, 'meeting': meeting});
+        console.log('adding new data...');
+        this.afs.collection('members').doc(id).collection('attendance').add({'date': date, 'service': service, 'meeting': meeting});
       }
+      return;
     });
-
-    // console.log(data);
-    // if () {
-
-    // } else {
-    //   this.afs.collection('members').doc(id).collection('attendance').add({'date': date, 'service': service, 'meeting': meeting});
-    // }
   }
 
   getDocumentId() {

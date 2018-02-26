@@ -11,28 +11,20 @@ import { PrismService } from '../prism.service';
 })
 export class DashboardComponent implements OnInit {
 
-  // postsCol: AngularFirestoreCollection<Post>;
-  // posts: any;
-  // title: string;
-  // content: string;
   members: any;
   total: number;
   selectedDate: Date;
   constructor(
-    // private afs: AngularFirestore,
     private ps: PrismService
   ) {
 
   }
 
   ngOnInit() {
-    // this.postsCol = this.afs.collection('posts');
-    // this.posts = this.ps.getPosts().valueChanges();
-    // console.log(this.posts);
     this.ps.getMembers().subscribe(res => {
       this.members = res;
       this.total = this.members.length;
-      // this.selectedDate = new Date('2018-02-18');
+      this.selectedDate = new Date('2018-02-18');
       // console.log(this.members);
     });
   }
@@ -44,12 +36,5 @@ export class DashboardComponent implements OnInit {
       });
     }
   }
-  // submit() {
-  //   console.log(this.title);
-  //   console.log(this.content);
-  //   if (this.title && this.content) {
-  //     this.ps.addPost(this.title, this.content);
-  //   }
-  // }
 
 }
