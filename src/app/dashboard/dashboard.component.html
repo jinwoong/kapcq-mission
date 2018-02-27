@@ -1,21 +1,14 @@
 <mat-card>
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Title" [(ngModel)]="title" name="title">
-        </mat-form-field> 
-        <mat-form-field>
-            <input matInput placeholder="Content" [(ngModel)]="content" name="content">
-        </mat-form-field> 
-        <button mat-button (click)="submit()">Submit</button>
-    </form>
+    <mat-form-field style="width:100%;">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="selectedDate" (dateChange)="viewAttendance()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+    </mat-form-field>
+</mat-card>
+<mat-card>
+    <mat-card-subtitle>Total Members</mat-card-subtitle>
+    <mat-card-title>{{total}}</mat-card-title>
+    <mat-card-subtitle>Worship Attendance</mat-card-subtitle>
+    <mat-card-subtitle>Meeting Attendance</mat-card-subtitle>
 </mat-card>
 
-<ul *ngFor="let post of posts | async">
-    <li>
-        <strong>{{post.title}}</strong>
-        <br>
-        {{ post.content }}
-    </li>
-</ul>
-<mat-card>Simple card 1</mat-card>
-<mat-card class="card">Simple card 2</mat-card>
