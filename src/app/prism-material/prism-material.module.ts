@@ -16,7 +16,10 @@ import {
   MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
-import { DxDataGridModule } from 'devextreme-angular';
+import { 
+  DxDataGridModule,
+  DxChartModule,
+} from 'devextreme-angular';
 
 @NgModule({
   imports: [
@@ -36,6 +39,7 @@ import { DxDataGridModule } from 'devextreme-angular';
     MatDatepickerModule,
     MatNativeDateModule,
     DxDataGridModule,
+    DxChartModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -53,6 +57,7 @@ import { DxDataGridModule } from 'devextreme-angular';
     MatDatepickerModule,
     MatNativeDateModule,
     DxDataGridModule,
+    DxChartModule
   ],
   declarations: []
 })
