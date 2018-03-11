@@ -6,9 +6,37 @@
     </mat-form-field>
 </mat-card>
 <mat-card>
-    <mat-card-subtitle>Total Members</mat-card-subtitle>
-    <mat-card-title>{{total}}</mat-card-title>
-    <mat-card-subtitle>Worship Attendance</mat-card-subtitle>
-    <mat-card-subtitle>Meeting Attendance</mat-card-subtitle>
+    <mat-card-subtitle id="total">Total Members</mat-card-subtitle>
+    <mat-card-title id="total">{{total}}</mat-card-title>
+    <mat-card-subtitle id="total">Worship Attendance</mat-card-subtitle>
+    <mat-card-title id="total">{{worshipTotal}}</mat-card-title>
+    <mat-card-subtitle id="total">Meeting Attendance</mat-card-subtitle>
+    <mat-card-title id="total">{{meetingTotal}}</mat-card-title>
 </mat-card>
-
+<mat-card>
+    <dx-chart
+        id="chart"
+        title="Attendance by Teams"
+        [dataSource]="attendanceData">
+        <dxi-series valueField="total" name="Total"></dxi-series>
+        <dxi-series valueField="service" name="Service"></dxi-series>
+        <dxi-series valueField="meeting" name="Meeting"></dxi-series>
+        <dxo-common-series-settings
+            argumentField="team"
+            type="bar"
+            hoverMode="allArgumentPoints"
+            selectionMode="allArgumentPoints">
+            <dxo-label
+                [visible]="true"
+                [format]="{
+                    type: 'fixedPoint',
+                    precision: '0'
+                }">
+            </dxo-label>
+        </dxo-common-series-settings>
+        <dxo-legend
+            verticalAlignment="bottom"
+            horizontalAlignment="center">
+        </dxo-legend>
+    </dx-chart>
+</mat-card>

@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberManagementComponent implements OnInit {
 
+  navLinks = [
+    {path: 'dashboard', label: 'Dashboard'},
+    {path: 'attendance', label: 'Attendance'},
+    {path: 'management', label: 'Management'}
+  ]
   constructor() { }
 
   ngOnInit() {

@@ -17,6 +17,10 @@ export class AttendanceComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let today = new Date();
+    let first = today.getDate() - today.getDay();
+    let firstDay = new Date(today.setDate(first));
+    this.attendanceDate = new Date(firstDay.toDateString());
   }
 
   getTeamMembers() {
@@ -28,6 +32,7 @@ export class AttendanceComponent implements OnInit {
   }
 
   addAttendance() {
+    console.log(this.members);
     console.log('Adding attendance...');
     if (this.attendanceDate) {
       for (const member of this.members) {
@@ -38,7 +43,7 @@ export class AttendanceComponent implements OnInit {
           member.meetingChecked = false;
         }
         member.attendanceDate = this.attendanceDate;
-        this.ps.addAttendance(member.id, member.attendanceDate, member.sundayChecked, member.meetingChecked);
+        this.ps.addAttendance(member.id, member.Team, member.attendanceDate, member.sundayChecked, member.meetingChecked);
       }
     }
   }
