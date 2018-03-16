@@ -10,7 +10,8 @@ export class AttendanceComponent implements OnInit {
 
   team: string;
   members: Array<any> = [];
-  attendanceDate: Date;
+  attendanceDate: Date; 
+  data: any;
 
   constructor(
     private ps: PrismService
@@ -24,11 +25,24 @@ export class AttendanceComponent implements OnInit {
   }
 
   getTeamMembers() {
-    console.log(this.team);
-    this.ps.getTeamMembers(this.team).subscribe(res => {
-      this.members = res;
-      console.log(this.members);
-    });
+    if(this.team && this.attendanceDate) {
+      this.ps.getAttendance(this.attendanceDate).subscribe(attendance => {
+        this.ps.getTeamMembers(this.team).subscribe(team => {
+          for (let member of team) {
+            const item = attendance.filter(x => x.name === member.name);
+            if (item.length > 0) {
+              member.meeting = item[0].meeting;
+              member.service = item[0].service;
+              member.note = item[0].note;
+              if (member.note != "") {
+                member.showNote = true;
+              }
+            } 
+          }
+          this.members = team;
+        });
+      });
+    }
   }
 
   addAttendance() {
@@ -36,14 +50,17 @@ export class AttendanceComponent implements OnInit {
     console.log('Adding attendance...');
     if (this.attendanceDate) {
       for (const member of this.members) {
-        if (member.sundayChecked === undefined) {
-          member.sundayChecked = false;
+        if (member.service === undefined) {
+          member.service = false;
         }
-        if (member.meetingChecked === undefined) {
-          member.meetingChecked = false;
+        if (member.meeting === undefined) {
+          member.meeting = false;
+        }
+        if (member.note === undefined) {
+          member.note = '';
         }
         member.attendanceDate = this.attendanceDate;
-        this.ps.addAttendance(member.id, member.Team, member.attendanceDate, member.sundayChecked, member.meetingChecked);
+        this.ps.addAttendance(member.id, member.name, member.team_name, member.attendanceDate, member.service, member.meeting, member.note);
       }
     }
   }

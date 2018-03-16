@@ -4,8 +4,9 @@
         [dataSource]="members"
         [allowColumnResizing]="true"
         [columnAutoWidth]="true"
-        (onRowInserting)="addMember($event)">
-        <dxo-paging [pageSize]="10"></dxo-paging>
+        (onRowInserting)="addMember($event)"
+        (onRowUpdating)="editMember($event)">
+        <dxo-paging [pageSize]="20"></dxo-paging>
         <dxo-pager 
             [showPageSizeSelector]="true"
             [allowedPageSizes]="[5, 10, 20]"
@@ -19,17 +20,14 @@
             <dxo-popup
                 title="Member Info"
                 [showTitle]="true"
-                [width]="700"
-                [height]="345"
-                [position]="{ my: 'center', at: 'center', of: 'window' }">
+                [position]="{ my: 'center', at: 'center'}">
             </dxo-popup>
         </dxo-editing>    
-        <dxi-column dataField="Name"></dxi-column>
-        <dxi-column dataField="Team"></dxi-column>
-        <dxi-column dataField="Position"></dxi-column>
+        <dxi-column dataField="name"></dxi-column>
+        <dxi-column dataField="team_name"></dxi-column>
+        <!-- <dxi-column dataField="Position"></dxi-column>
         <dxi-column dataField="Phone"></dxi-column>
         <dxi-column dataField="Birthday"></dxi-column>
-        <dxi-column dataField="Email"></dxi-column>
+        <dxi-column dataField="Email"></dxi-column> -->
     </dx-data-grid>
 </mat-card>
-

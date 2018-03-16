@@ -9,7 +9,7 @@ import { ManagementComponent } from '../management/management.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/member', pathMatch: 'full' },
+  { path: '', redirectTo: '/member/dashboard', pathMatch: 'full' },
   { path: 'member', component: MemberManagementComponent, children: [
     { path: 'dashboard', component: DashboardComponent},
     { path: 'attendance', component: AttendanceComponent},

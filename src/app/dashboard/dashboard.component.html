@@ -16,8 +16,9 @@
 <mat-card>
     <dx-chart
         id="chart"
-        title="Attendance by Teams"
-        [dataSource]="attendanceData">
+        title="Team Attendance"
+        [dataSource]="attendanceData"
+        (onPointClick)="onPointClick($event)">
         <dxi-series valueField="total" name="Total"></dxi-series>
         <dxi-series valueField="service" name="Service"></dxi-series>
         <dxi-series valueField="meeting" name="Meeting"></dxi-series>
@@ -39,4 +40,12 @@
             horizontalAlignment="center">
         </dxo-legend>
     </dx-chart>
+</mat-card>
+<mat-card>
+    <mat-card-title style="text-align:center">{{teamName}}</mat-card-title>
+    <dx-data-grid
+    id="gridContainer"
+    [dataSource]="teamAttendance"
+    [columns]="['name', 'service', 'meeting', 'note']">
+    </dx-data-grid>
 </mat-card>
