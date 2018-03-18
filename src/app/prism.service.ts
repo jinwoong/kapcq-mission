@@ -62,8 +62,8 @@ export class PrismService {
   addMembers(name: string, team: string) {
     this.afs.collection('members').add({'Name': name, 'Team': team});
   }
-  addAnnouncement(content: string, group: string, teamcolor: string, title: string, writer: string, location: string, time: string) {
-    this.afs.collection('announcement').add({'Content': content, 'Group': group, 'TeamColor': teamcolor, 'Title': title, 'Writer': writer, 'Location': location, 'Time':time});
+  addAnnouncement(content: string, group: string, teamcolor: string, title: string, writer: string, location: string, time: string, date: Date) {
+    this.afs.collection('announcement').add({'Content': content, 'Group': group, 'TeamColor': teamcolor, 'Title': title, 'Writer': writer, 'Location': location, 'Time':time, 'Date':date});
   }
 
   addAttendance(id, team, date, service, meeting) {

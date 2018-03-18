@@ -2,7 +2,8 @@
 	<mat-grid-tile *ngFor="let tile of tiles" [colspan]=5 [rowspan]=5 [style.background]="tile.TeamColor">
 		<div class="leftCol">
 			{{tile.Location}}<br>
-			{{tile.Time}}<br>
+			{{tile.Date | date:'fullDate'}}<br>
+			@{{tile.Time}}<br>
 		</div>
 		<div class="centerCol">
 			<div class="title">{{tile.Title}}<br></div>

@@ -1,7 +1,10 @@
 .createPost-button{
-	position: fixed;
+	position: absolute;
+	left: 48%;
 	bottom: 0;
-	right: 0;
+}
+.mat-fab{
+	background-color: #ffffff;
 }
 .mat-grid-tile{
 	color: white;
