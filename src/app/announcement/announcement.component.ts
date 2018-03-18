@@ -35,7 +35,7 @@ export class AnnouncementComponent implements OnInit {
 				this.tiles.push(this.announcement[i]);
 			}
 			this.tiles.reverse();
-			console.log(this.tiles);
+			//console.log(this.tiles);
 		})
 	}
 

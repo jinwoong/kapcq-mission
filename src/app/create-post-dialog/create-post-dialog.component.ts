@@ -15,6 +15,8 @@ export class CreatePostDialogComponent implements OnInit {
  content: string;
  group: string;
  team: string;
+ location: string;
+ time: string;
 
 constructor(
  private ps: PrismService,
@@ -25,7 +27,7 @@ onNoClick(): void {
  this.dialogRef.close();
 }
 submit(): void {
- this.ps.addAnnouncement(this.content, this.group, this.team, this.title, this.name);
+ this.ps.addAnnouncement(this.content, this.group, this.team, this.title, this.name, this.location, this.time);
  console.log(this.group);
  this.dialogRef.close();
 }
