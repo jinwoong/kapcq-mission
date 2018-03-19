@@ -20,8 +20,10 @@ export class DashboardComponent implements OnInit {
   worshipTotal: number = 0;
 
   teamNames = ['YOLO', '김선자', '새가족', '아람단', '햄볶음'];
+  teamName: string;
 
   attendanceData: Array<any> = [];
+  teamAttendance: any;
 
   constructor(
     private ps: PrismService
@@ -40,6 +42,7 @@ export class DashboardComponent implements OnInit {
   }
 
   viewAttendance() {
+    this.teamAttendance = [];
     if (this.attendanceData.length > 0) {
       this.attendanceData = [];
     }
@@ -57,6 +60,13 @@ export class DashboardComponent implements OnInit {
         this.attendanceData.push(team);
       }
     });
+  }
+
+  onPointClick(e) {
+    this.teamName = e.target.argument;
+    this.teamAttendance = this.data.filter(attendance => attendance.team_name === e.target.argument);
+    // var teamData = this.data.filter(attendance => attendance.team_name === e.target.argument)
+    console.log(this.teamAttendance);
   }
 
 }
