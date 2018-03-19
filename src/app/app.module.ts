@@ -23,6 +23,7 @@ import { ManagementComponent } from './management/management.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { CreatePostDialogComponent } from './create-post-dialog/create-post-dialog.component';
+import { WarningDialogComponent } from './create-post-dialog/warning-dialog/warning-dialog.component';
 
 
 var firebaseConfig = {
@@ -44,8 +45,9 @@ var firebaseConfig = {
     AnnouncementComponent,
     AttendanceComponent,
     CreatePostDialogComponent,
+    WarningDialogComponent,
   ],
-  entryComponents: [CreatePostDialogComponent],
+  entryComponents: [CreatePostDialogComponent, WarningDialogComponent],
   imports: [
     BrowserModule,
     FlexLayoutModule,

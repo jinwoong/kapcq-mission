@@ -59,14 +59,22 @@ export class PrismService {
     this.afs.collection('posts').add({'title': title, 'content': content});
   }
 
-  addMembers(name: string, team: string) {
+  addMember(name: string, team: string) {
     this.afs.collection('members').add({'Name': name, 'Team': team});
+  }
+  
+  updateMember(id, name, team) {
+    console.log(id, name, team);
+    this.afs.collection('member').doc(id).set({
+      name: name,
+      team_name: team
+    }, {merge: true});
   }
   addAnnouncement(content: string, group: string, teamcolor: string, title: string, writer: string, location: string, time: string, date: Date) {
     this.afs.collection('announcement').add({'Content': content, 'Group': group, 'TeamColor': teamcolor, 'Title': title, 'Writer': writer, 'Location': location, 'Time':time, 'Date':date});
   }
 
-  addAttendance(id, team, date, service, meeting) {
+  addAttendance(id, name, team, date, service, meeting, note) {
     this.afs.collection('attendance').doc(id + '-' + date.toISOString().split('T')[0]).set({
       member_id: id,
       team_name: team,
