@@ -55,12 +55,11 @@ export class PrismService {
     })
   }
 
-  addPost(title: string, content: string) {
-    this.afs.collection('posts').add({'title': title, 'content': content});
-  }
-
-  addMember(name: string, team: string) {
-    this.afs.collection('members').add({'Name': name, 'Team': team});
+  addMember(name, team) {
+    this.afs.collection('member').add({
+      name: name,
+      team_name: team
+    });
   }
   
   updateMember(id, name, team) {

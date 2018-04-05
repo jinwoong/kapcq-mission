@@ -25,9 +25,10 @@ export class AttendanceComponent implements OnInit {
   }
 
   getTeamMembers() {
+    this.members = [];
     if(this.team && this.attendanceDate) {
-      this.ps.getAttendance(this.attendanceDate).subscribe(attendance => {
-        this.ps.getTeamMembers(this.team).subscribe(team => {
+      this.ps.getTeamMembers(this.team).subscribe(team => {
+        this.ps.getAttendance(this.attendanceDate).subscribe(attendance => {
           for (let member of team) {
             const item = attendance.filter(x => x.name === member.name);
             if (item.length > 0) {
@@ -39,7 +40,9 @@ export class AttendanceComponent implements OnInit {
               }
             } 
           }
-          this.members = team;
+          if (this.members.length == 0) {
+            this.members = team;
+          }
         });
       });
     }
@@ -63,5 +66,6 @@ export class AttendanceComponent implements OnInit {
         this.ps.addAttendance(member.id, member.name, member.team_name, member.attendanceDate, member.service, member.meeting, member.note);
       }
     }
+    this.members = [];
   }
 }
