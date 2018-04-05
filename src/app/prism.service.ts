@@ -17,12 +17,16 @@ export class PrismService {
     private afs: AngularFirestore
     ) { }
 
+  getPosts() {
+    return this.afs.collection('posts');
+  }
+
   getAnnouncements() {
     return this.afs.collection('announcement');
   }
 
   getMembers() {
-    return this.afs.collection('member').snapshotChanges().map(actions => {
+    return this.afs.collection('members').snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;
@@ -32,7 +36,7 @@ export class PrismService {
   }
 
   getTeamMembers(team) {
-    return this.afs.collection('member', ref => ref.where('team_name', '==', team)).snapshotChanges().map(actions => {
+    return this.afs.collection('members', ref => ref.where('Team', '==', team)).snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;
@@ -57,7 +61,7 @@ export class PrismService {
       team_name: team
     });
   }
-
+  
   updateMember(id, name, team) {
     console.log(id, name, team);
     this.afs.collection('member').doc(id).set({
@@ -65,31 +69,22 @@ export class PrismService {
       team_name: team
     }, {merge: true});
   }
-
-  addAnnouncement(content: string, group: string, teamcolor: string, title: string, writer: string) {
-    this.afs.collection('announcement').add({'Content': content, 'Group': group, 'TeamColor': teamcolor, 'Title': title, 'Writer': writer});
+  addAnnouncement(content: string, group: string, teamcolor: string, title: string, writer: string, location: string, time: string, date: Date) {
+    this.afs.collection('announcement').add({'Content': content, 'Group': group, 'TeamColor': teamcolor, 'Title': title, 'Writer': writer, 'Location': location, 'Time':time, 'Date':date});
   }
 
   addAttendance(id, name, team, date, service, meeting, note) {
-    let documentID:string = '';
-    if (id.indexOf('-') >= 0) {
-      documentID = id;
-    } else {
-      documentID = id + '-' + date.toISOString().split('T')[0];
-    }
-    this.afs.collection('attendance').doc(documentID).set({
+    this.afs.collection('attendance').doc(id + '-' + date.toISOString().split('T')[0]).set({
       member_id: id,
-      name: name,
       team_name: team,
       attendance_date: date,
       service: service,
-      meeting: meeting,
-      note: note
+      meeting: meeting
     }, {merge: true});
   }
 
   getDocumentId() {
-    return this.afs.collection('member').snapshotChanges().map(actions => {
+    return this.afs.collection('members').snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;
