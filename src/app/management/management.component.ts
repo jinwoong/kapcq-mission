@@ -25,9 +25,10 @@ export class ManagementComponent implements OnInit {
 
   addMember(e) {
     console.log('adding member...');
+    // console.log(e.data);
     if (e.data.name && e.data.team_name) {
       // console.log('Name: ' + e.data.name + " Team Name: " + e.data.team_name);
-      this.ps.addMember(e.data.Name, e.data.Team);
+      this.ps.addMember(e.data.name, e.data.team_name);
     }
   }
 
