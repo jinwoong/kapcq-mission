@@ -66,6 +66,7 @@ export class DashboardComponent implements OnInit {
       this.attendanceData = [];
     }
     this.ps.getAttendance(this.selectedDate).subscribe(res => {
+      console.log(res);
       this.data = res;
       this.worshipTotal = this.data.filter(attendance => attendance.service).length;
       this.meetingTotal = this.data.filter(attendance => attendance.meeting).length;

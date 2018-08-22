@@ -84,7 +84,8 @@ export class PrismService {
       team_name: team,
       attendance_date: date,
       service: service,
-      meeting: meeting
+      meeting: meeting,
+      note: note
     }, {merge: true});
   }
 
