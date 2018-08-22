@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { PrismService } from '../prism.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { WarningDialogComponent } from './warning-dialog/warning-dialog.component';
+// import { WarningDialogComponent } from './warning-dialog/warning-dialog.component';
 
 
 @Component({
@@ -36,19 +36,19 @@ export class CreatePostDialogComponent implements OnInit {
 		catch(e)
 		{
 			console.log('error',e);
-			this.openDialog();
+			// this.openDialog();
 		}
 
 		console.log(this.group);
 		this.dialogRef.close();
 	}
 
-	openDialog(): void{
-		let dialogRef = this.dialog.open(WarningDialogComponent,{
-			width: '225px',
-		});
+	// openDialog(): void{
+	// 	let dialogRef = this.dialog.open(WarningDialogComponent,{
+	// 		width: '225px',
+	// 	});
 
-	}
+	// }
 
 	ngOnInit() {}
 }

@@ -19,12 +19,21 @@ export class DashboardComponent implements OnInit {
   meetingTotal: number = 0;
   worshipTotal: number = 0;
 
-  teamNames = ['YOLO', '김선자', '새가족', '아람단', '햄볶음'];
+  teams = [];
+  teamNames = [];
   teamName: string;
 
   attendanceData: Array<any> = [];
   teamAttendance: any;
+  type = 'area';
 
+  historicalAttendance: any = [
+    { date: new Date('03/04/2018'), total: 67, service: 63, meeting: 45 },
+    { date: new Date('03/11/2018'), total: 67, service: 61, meeting: 41 },
+    { date: new Date('03/18/2018'), total: 73, service: 65, meeting: 38 },
+    { date: new Date('03/25/2018'), total: 83, service: 61, meeting: 43 },
+    { date: new Date('04/01/2018'), total: 85, service: 67, meeting: 6 },
+  ]
   constructor(
     private ps: PrismService
   ) {}
@@ -34,6 +43,16 @@ export class DashboardComponent implements OnInit {
       this.members = res;
       this.total = this.members.length;
     });
+    this.ps.getTeamNames().subscribe(res => {
+      this.teams = res;
+      let flags = [], l = this.teams.length, i;
+      for (i = 0; i < l; i++) {
+        if (flags[this.teams[i].team_name]) continue;
+        flags[this.teams[i].team_name] = true;
+        this.teamNames.push(this.teams[i].team_name);
+      }
+      this.teamNames.sort();
+    })
     let today = new Date();
     let first = today.getDate() - today.getDay();
     let firstDay = new Date(today.setDate(first));

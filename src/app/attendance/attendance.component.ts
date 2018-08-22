@@ -12,6 +12,8 @@ export class AttendanceComponent implements OnInit {
   members: Array<any> = [];
   attendanceDate: Date; 
   data: any;
+  teams: any;
+  teamNames = [];
 
   constructor(
     private ps: PrismService
@@ -22,6 +24,16 @@ export class AttendanceComponent implements OnInit {
     let first = today.getDate() - today.getDay();
     let firstDay = new Date(today.setDate(first));
     this.attendanceDate = new Date(firstDay.toDateString());
+    this.ps.getTeamNames().subscribe(res => {
+      this.teams = res;
+      let flags = [], l = this.teams.length, i;
+      for (i = 0; i < l; i++) {
+        if (flags[this.teams[i].team_name]) continue;
+        flags[this.teams[i].team_name] = true;
+        this.teamNames.push(this.teams[i].team_name);
+      }
+      this.teamNames.sort();
+    })
   }
 
   getTeamMembers() {

@@ -1,11 +1,14 @@
 <mat-card>
   <mat-form-field style="width:100%;">
     <mat-select placeholder="Select a team" [(ngModel)]="team" (selectionChange)="getTeamMembers()">
-      <mat-option value='YOLO'>YOLO</mat-option>
+      <mat-option *ngFor="let name of teamNames" [value] = "name">
+        {{name}}
+      </mat-option>
+      <!-- <mat-option value='YOLO'>YOLO</mat-option>
       <mat-option value='김선자'>김선자</mat-option>
       <mat-option value='새가족'>새가족</mat-option>
       <mat-option value='아람단'>아람단</mat-option>
-      <mat-option value='햄볶음'>햄볶음</mat-option>
+      <mat-option value='햄볶음'>햄볶음</mat-option> -->
     </mat-select>
   </mat-form-field>
   <mat-form-field style="width:100%;">

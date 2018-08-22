@@ -26,7 +26,7 @@ export class PrismService {
   }
 
   getMembers() {
-    return this.afs.collection('members').snapshotChanges().map(actions => {
+    return this.afs.collection('member').snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;
@@ -36,7 +36,7 @@ export class PrismService {
   }
 
   getTeamMembers(team) {
-    return this.afs.collection('members', ref => ref.where('Team', '==', team)).snapshotChanges().map(actions => {
+    return this.afs.collection('member', ref => ref.where('team_name', '==', team)).snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;
@@ -53,6 +53,10 @@ export class PrismService {
         return data;
       })
     })
+  }
+
+  getTeamNames() {
+    return this.afs.collection('member').valueChanges();
   }
 
   addMember(name, team) {
@@ -76,6 +80,7 @@ export class PrismService {
   addAttendance(id, name, team, date, service, meeting, note) {
     this.afs.collection('attendance').doc(id + '-' + date.toISOString().split('T')[0]).set({
       member_id: id,
+      name: name,
       team_name: team,
       attendance_date: date,
       service: service,
@@ -84,7 +89,7 @@ export class PrismService {
   }
 
   getDocumentId() {
-    return this.afs.collection('members').snapshotChanges().map(actions => {
+    return this.afs.collection('member').snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;

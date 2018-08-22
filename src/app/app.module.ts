@@ -11,6 +11,7 @@ import { MatDialogModule, MatDialog,MatDialogRef } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from '../environments/environment';
 import { PrismService } from './prism.service';
