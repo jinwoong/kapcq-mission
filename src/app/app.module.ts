@@ -25,6 +25,8 @@ import { AnnouncementComponent } from './announcement/announcement.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { CreatePostDialogComponent } from './create-post-dialog/create-post-dialog.component';
 import { WarningDialogComponent } from './create-post-dialog/warning-dialog/warning-dialog.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
 
 
 var firebaseConfig = {
@@ -47,6 +49,7 @@ var firebaseConfig = {
     AttendanceComponent,
     CreatePostDialogComponent,
     WarningDialogComponent,
+    LoginComponent,
   ],
   entryComponents: [CreatePostDialogComponent, WarningDialogComponent],
   imports: [
@@ -61,9 +64,10 @@ var firebaseConfig = {
     MatInputModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     FormsModule
   ],
-  providers: [PrismService],
+  providers: [PrismService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
