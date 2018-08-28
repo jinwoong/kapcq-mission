@@ -1,7 +1,39 @@
-<h1>Login to your account using Google</h1>
-<button (click)="login()">Login</button>
-<div *ngIf="AuthService.user | async as user">
-  <h3>Hello {{user.displayName}}</h3>
-  <img [src]="user.photoURL">
-  <button (click)="AuthService.logout()">Log out</button>
+<div class="login">
+  <mat-card>
+    <mat-card-subtitle>Member Login</mat-card-subtitle>
+    <form class="login-form">
+      <!-- <mat-form-field class="center">
+        <input matInput placeholder="Name">
+      </mat-form-field> -->
+      <button class="login-button" color="primary" mat-raised-button (click)="login()">Sign in with Google</button>
+    </form>
+      <!-- <div *ngIf="user">
+        <h3>Hello {{user.displayName}}</h3>
+        <img [src]="user.photoURL">
+        <button mat-button (click)="AuthService.logout()">Log out</button>
+      </div> -->
+  </mat-card>
 </div>
+
+
+<!-- <div class="login-page">
+    <div class="form">
+      <form class="register-form">
+        <mat-form-field>
+          <input matInput placeholder="name"/>
+        </mat-form-field>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form">
+        <mat-form-field>
+          <input matInput placeholder="username"/>
+        </mat-form-field>
+        <input type="password" placeholder="password"/>
+        <button>login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+  </div> -->
